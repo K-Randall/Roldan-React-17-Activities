@@ -20,6 +20,14 @@ function App() {
     )
   })
 
+  const printTodoList = useCallback(() => {
+    console.log('Changing todoList', todoList)
+  }, [todoList])
+
+  useEffect(() => {
+    printTodoList()
+  }, [todoList, printTodoList])
+
   const handleCreate = () => {
     const newTodo = {
       id: Date.now(),
